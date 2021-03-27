@@ -135,7 +135,7 @@ xl.chat.message.get("<xuid>").then(console.log);
 
 ### Sending message
 ```javascript
-xl.chat.message.send("<message>").then(console.log);
+xl.chat.message.send("<message>", "<xuid>").then(console.log);
 ```
 
 
