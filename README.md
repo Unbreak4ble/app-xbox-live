@@ -1,4 +1,9 @@
 <h1 align="center">Xbox Live System</h1>
+<p align="center">
+    <img src="https://img.shields.io/npm/dm/xbox-live-system.svg">
+    <img src="https://badge.fury.io/js/xbox-live-system.svg">
+    <img src="https://snyk.io/test/github/AtomScript/xbox-live-system/badge.svg">
+</p>
 
 ## Install
 ```bash
