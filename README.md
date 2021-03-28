@@ -17,6 +17,7 @@ const xls = require("xbox-live-system");
 
 //This method is based on Async/await.
 const token = await xls.Token("<your email>", "<your password>");
+//Output: ["token", "uhs"]
 ```
 Note: The account cannot have 2-step verification. Preferably, use only an account that has only a password as security.
 
