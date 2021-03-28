@@ -1,0 +1,23 @@
+{
+	"parserOptions": {
+		"ecmaVersion": 2017
+	},
+	"extends": ["plugin:prettier/recommended"],
+	"root": true,
+	"env": {
+		"node": true
+	},
+	"ignorePatterns": [".eslintrc.js"],
+	"rules": {
+		"no-case-declarations": 0,
+		"accessor-pairs": ["warn", { "setWithoutGet": false }],
+		"no-param-reassign": "error",
+		"no-new": "off",
+		"no-prototype-builtins": "off",
+		"no-restricted-syntax": "off",
+		"max-classes-per-file": "off",
+		"no-underscore-dangle": "off",
+		"prettier/prettier": "error",
+		"class-methods-use-this": "off"
+	}
+}
