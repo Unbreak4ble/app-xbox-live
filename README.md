@@ -22,6 +22,8 @@ Note: The account cannot have 2-step verification. Preferably, use only an accou
 
 Attention: the token, email and password must be kept secret, do not share or display it to anyone.
 The token is reset every 24 hours. Then you will need to obtain another token again after 24 hours.
+Microsoft does not allow spam to generate multiple tokens. Just generate 1 token and use it for 24 hours.
+
 
 ## Logging in with your token
 ```javascript
@@ -31,6 +33,25 @@ this done, if there is no error, you can now manipulate data.
 
 
 <h1 align="center">Manipulating data</h1>
+<h2 align="center"> Request </h2>
+
+### Make own request on xbox live.
+```javascript
+const opts = {
+  url: "<request url>",
+  method: "<request method>",
+  headers: {},
+  data: "<data>"
+}
+xl.request(opts).then(data =>{
+  console.log(data);
+});
+```
+The only important properties of the request options are URL and Method.
+The data and headers properties you decide whether to add or not.
+It is not necessary to add the authorization header because the method automatically adds it.
+
+
 <h2 align="center"> People </h2>
 
 ### Finding user by gamertag
