@@ -6,9 +6,81 @@ class Account {
     this.#_token = Token;
   };
   
+  //---------------- Custom ------------------
+  
+  
+  request = (options) =>{
+    return new Promise ((resolve, reject) =>{
+    if(options["url"] && options["method"]){
+      if(typeof options["url"] === "string" && typeof options["method"] === "string"){
+        
+      if(options["data"]){
+  
+          let opts = {
+      url: options["url"],
+      method: options["method"],
+      headers: {}
+         };
+         if(options["headers"])
+         opts["headers"] = options["headers"];
+         
+         
+opts["headers"]["authorization"] = this.#_token;
+      opts["headers"]["User-Agent"] = "okhttp/4.9.1";
+      
+      opts["data"] = options["data"];
+      
+
+      
+      axios(opts).then(res =>{
+        resolve(res.data);
+      }).catch(err =>{
+  if(err.response.statusCode === 401)
+  reject("Invalid token.");
+  else
+  reject(`${err}`);
+});
+        
+      }else{
+         let opts = {
+      url: options["url"],
+      method: options["method"],
+      headers: {}
+         };
+         
+        if(options["headers"])
+        opts["headers"] = options["headers"];
+         
+         
+opts["headers"]["authorization"] = this.#_token;
+      opts["headers"]["User-Agent"] = "okhttp/4.9.1";
+      
+     
+
+      
+      axios(opts).then(res =>{
+        resolve(res.data);
+      }).catch(err =>{
+  if(err.response.statusCode === 401)
+  reject("Invalid token.");
+  else
+  reject(`${err}`);
+});
+       }
+      
+    }else
+      reject ("The types of the URL or Method property must be string.");
+    
+    
+    }else
+reject("you need the URL and the request method.");
+});
+  };
+  
+  
   //---------------- club ------------------
   
-  
+ 
   club = {
   find: (xuid) => {
     return new Promise((resolve, reject) =>{
@@ -897,17 +969,8 @@ Connection: "Keep-Alive",
   }
     }
   }
-    
-  
-  
-  
-  
   
   };
-  
-  
- 
-  
   
 };
 
