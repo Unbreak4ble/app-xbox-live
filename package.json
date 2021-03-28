@@ -1,0 +1,21 @@
+{
+  "name": "xbox-live-system",
+  "version": "1.1.6",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/AtomScript/xbox-live-system.git"
+},
+  "keywords": ["xbox", "live", "xbox-live", "xbox-live-api", "xbox-live-system", "xbox-api", "api"],
+  "author": "AtomScript",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cookie": "^0.4.1",
+    "query-string": "^7.0.0"
+  }
+}
