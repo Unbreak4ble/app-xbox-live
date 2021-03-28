@@ -35,7 +35,7 @@ opts["headers"]["authorization"] = this.#_token;
       axios(opts).then(res =>{
         resolve(res.data);
       }).catch(err =>{
-  if(err.response.statusCode === 401)
+  if(err.response.status === 401)
   reject("Invalid token.");
   else
   reject(`${err}`);
@@ -61,7 +61,7 @@ opts["headers"]["authorization"] = this.#_token;
       axios(opts).then(res =>{
         resolve(res.data);
       }).catch(err =>{
-  if(err.response.statusCode === 401)
+  if(err.response.status === 401)
   reject("Invalid token.");
   else
   reject(`${err}`);
@@ -106,7 +106,7 @@ Connection: "Keep-Alive",
       axios(opts).then(res =>{
         resolve(res.data);
       }).catch(err =>{
-  if(err.response.statusCode === 401)
+  if(err.response.status === 401)
   reject("Invalid token.");
   else
   reject(`${err}`);
@@ -138,7 +138,7 @@ Connection: "Keep-Alive",
       axios(opts).then(res =>{
         resolve(res.data);
       }).catch(err =>{
-  if(err.response.statusCode === 401)
+  if(err.response.status === 401)
   reject("Invalid token.");
   else
   reject("Unknown error.");
@@ -200,7 +200,7 @@ Connection: "Keep-Alive",
       axios(opts).then(res =>{
         resolve(res.data);
       }).catch(err =>{
-  if(err.response.statusCode === 401)
+  if(err.response.status === 401)
   reject("Invalid token.");
   else
   reject("Unknown error.");
@@ -230,7 +230,7 @@ Connection: "Keep-Alive",
       axios(opts).then(res =>{
         resolve(res.data);
       }).catch(err =>{
-  if(err.response.statusCode === 401)
+  if(err.response.status === 401)
   reject("Invalid token.");
   else
   reject("Unknown error.");
@@ -269,7 +269,7 @@ Connection: "Keep-Alive",
       axios(opts).then(res =>{
         resolve(res.data);
       }).catch(err =>{
-  if(err.response.statusCode === 401)
+  if(err.response.status === 401)
   reject("Invalid token.");
   else
   reject("Unknown error.");
@@ -297,7 +297,7 @@ Connection: "Keep-Alive",
       axios(opts).then(res =>{
         resolve(res.data);
       }).catch(err =>{
-  if(err.response.statusCode === 401)
+  if(err.response.status === 401)
   reject("Invalid token.");
   else
   reject("Unknown error.");
@@ -380,7 +380,7 @@ Connection: "Keep-Alive",
       axios(opts).then(res =>{
         resolve(res.data);
       }).catch(err =>{
-  if(err.response.statusCode === 401)
+  if(err.response.status === 401)
   reject("Invalid token.");
   else
   reject("Unknown error.");
@@ -414,7 +414,7 @@ Connection: "Keep-Alive",
       axios(opts).then(res =>{
         resolve(res.data);
       }).catch(err =>{
-  if(err.response.statusCode === 401)
+  if(err.response.status === 401)
   reject("Invalid token.");
   else
   reject("Unknown error.");
@@ -448,7 +448,7 @@ Connection: "Keep-Alive",
       axios(opts).then(res =>{
         resolve(res.data);
       }).catch(err =>{
-  if(err.response.statusCode === 401)
+  if(err.response.status === 401)
   reject("Invalid token.");
   else
   reject("Unknown error.");
@@ -481,7 +481,7 @@ Connection: "Keep-Alive",
       axios(opts).then(res =>{
         resolve(res.data);
       }).catch(err =>{
-  if(err.response.statusCode === 401)
+  if(err.response.status === 401)
   reject("Invalid token.");
   else
   reject("Unknown error.");
@@ -514,7 +514,7 @@ Connection: "Keep-Alive",
       axios(opts).then(res =>{
         resolve(res.data);
       }).catch(err =>{
-  if(err.response.statusCode === 401)
+  if(err.response.status === 401)
   reject("Invalid token.");
   else
   reject("Unknown error.");
@@ -547,7 +547,7 @@ Connection: "Keep-Alive",
       axios(opts).then(res =>{
         resolve(res.data);
       }).catch(err =>{
-  if(err.response.statusCode === 401)
+  if(err.response.status === 401)
   reject("Invalid token.");
   else
   reject("Unknown error.");
@@ -580,7 +580,7 @@ Connection: "Keep-Alive",
       axios(opts).then(res =>{
         resolve(res.data);
       }).catch(err =>{
-  if(err.response.statusCode === 401)
+  if(err.response.status === 401)
   reject("Invalid token.");
   else
   reject("Unknown error.");
@@ -615,7 +615,7 @@ Connection: "Keep-Alive",
         
       resolve(res.data)
       }).catch(err =>{
-  if(err.response.statusCode === 401)
+  if(err.response.status === 401)
   reject("Invalid token.");
   else
   reject("Unknown error.");
@@ -649,7 +649,7 @@ Connection: "Keep-Alive",
       axios(opts).then(res =>{
         resolve(res.data);
       }).catch(err =>{
-  if(err.response.statusCode === 401)
+  if(err.response.status === 401)
   reject("Invalid token.");
   else
   reject("Unknown error.");
@@ -713,7 +713,7 @@ Connection: "Keep-Alive",
       axios(opts).then(res =>{
         resolve(res.data);
       }).catch(err =>{
-  if(err.response.statusCode === 401)
+  if(err.response.status === 401)
   reject("Invalid token.");
   else
   reject("Unknown error.");
@@ -752,7 +752,7 @@ Connection: "Keep-Alive",
       axios(opts).then(res =>{
         resolve(res.data);
       }).catch(err =>{
-  if(err.response.statusCode === 401)
+  if(err.response.status === 401)
   reject("Invalid token.");
   else
   reject("Unknown error.");
@@ -785,7 +785,7 @@ Connection: "Keep-Alive",
       axios(opts).then(res =>{
         resolve(res.data);
       }).catch(err =>{
-  if(err.response.statusCode === 401)
+  if(err.response.status === 401)
   reject("Invalid token.");
   else
   reject("Unknown error.");
@@ -819,7 +819,7 @@ Connection: "Keep-Alive",
       axios(opts).then(res =>{
         resolve(res.data);
       }).catch(err =>{
-  if(err.response.statusCode === 401)
+  if(err.response.status === 401)
   reject("Invalid token.");
   else
   reject("Unknown error.");
@@ -857,7 +857,7 @@ Connection: "Keep-Alive",
       axios(opts).then(res =>{
         resolve(res.data);
       }).catch(err =>{
-  if(err.response.statusCode === 401)
+  if(err.response.status === 401)
   reject("Invalid token.");
   else
   reject("Unknown error.");
@@ -891,7 +891,7 @@ Connection: "Keep-Alive",
       axios(opts).then(res =>{
         resolve(res.data);
       }).catch(err =>{
-  if(err.response.statusCode === 401)
+  if(err.response.status === 401)
   reject("Invalid token.");
   else
   reject("Unknown error.");
@@ -925,7 +925,7 @@ Connection: "Keep-Alive",
       axios(opts).then(res =>{
         resolve(res.data);
       }).catch(err =>{
-  if(err.response.statusCode === 401)
+  if(err.response.status === 401)
   reject("Invalid token.");
   else
   reject("Unknown error.");
@@ -960,7 +960,7 @@ Connection: "Keep-Alive",
       axios(opts).then(res =>{
         resolve(res.data);
       }).catch(err =>{
-  if(err.response.statusCode === 401)
+  if(err.response.status === 401)
   reject("Invalid token.");
   else
   reject("Unknown error.");
@@ -968,9 +968,12 @@ Connection: "Keep-Alive",
     });
   }
     }
-  }
-  
+   }
   };
+  
+  
+ 
+  
   
 };
 
