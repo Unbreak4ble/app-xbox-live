@@ -36,7 +36,7 @@ this done, if there is no error, you can now manipulate data.
 <h1 align="center">Manipulating data</h1>
 <h2 align="center"> Request </h2>
 
-### Make own request on xbox live.
+### Make a custom request on xbox live
 ```javascript
 const opts = {
   url: "<request url>",
@@ -48,8 +48,6 @@ xl.request(opts).then(data =>{
   console.log(data);
 });
 ```
-The only important properties of the request options are URL and Method.
-The data and headers properties you decide whether to add or not.
 It is not necessary to add the authorization header because the method automatically adds it.
 
 
@@ -93,13 +91,6 @@ xl.people.summary.get("<xuid>").then(user =>{
 ### Getting user achievement
 ```javascript
 xl.people.achievement.get("<xuid>").then(user =>{
-  console.log(user);
-});
-```
-
-### Getting user setting
-```javascript
-xl.people.setting.get("<xuid>").then(user =>{
   console.log(user);
 });
 ```
