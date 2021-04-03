@@ -1,19 +1,19 @@
-<h1 align="center">Xbox Live System</h1>
+<h1 align="center">Xbox Live</h1>
 <p align="center">
-    <img src="https://img.shields.io/npm/dm/xbox-live-system.svg">
-    <img src="https://badge.fury.io/js/xbox-live-system.svg">
-    <img src="https://snyk.io/test/github/AtomScript/xbox-live-system/badge.svg">
+    <img src="https://img.shields.io/npm/dm/xbox-live.js.svg">
+    <img src="https://badge.fury.io/js/xbox-live.js.svg">
+    <img src="https://snyk.io/test/github/AtomScript/xbox-live.js/badge.svg">
 </p>
 
 ## Install
 ```bash
-npm i xbox-live-system
+npm i xbox-live.js
 ```
 
 ## Getting started
 First, have your account token, if you don't have a token, try it to get your token:
 ```javascript
-const xls = require("xbox-live-system");
+const xls = require("xbox-live.js");
 
 //This method is based on Async/await.
 const token = await xls.Token("<your email>", "<your password>");
@@ -28,7 +28,7 @@ Microsoft does not allow spam to generate multiple tokens. Just generate 1 token
 
 ## Logging in with your token
 ```javascript
-const xl = new xls.Account(`XBL3.0 x=${token[1]};${token[0]}`;
+const xl = new xls.Account(`XBL3.0 x=${token[1]};${token[0]}`);
 ```
 this done, if there is no error, you can now manipulate data.
 
