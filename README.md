@@ -17,13 +17,13 @@ const xls = require("app-xbox-live");
 
 //This method is based on Async/await.
 const token = await xls.Token("<your email>", "<your password>");
-//Output: ["token", "uhs"]
+//output: ["token", "uhs"]
 ```
 Note: The account cannot have 2-step verification. Preferably, use only an account that has only a password as security.
 
 Attention: the token, email and password must be kept secret, do not share or display it to anyone.
 The token is reset every 24 hours. Then you will need to obtain another token again after 24 hours.
-Microsoft does not allow spam to generate multiple tokens. Just generate 1 token and use it for 24 hours.
+Microsoft does not allow to generate multiple tokens. Just generate 1 token and use it for 24 hours.
 
 
 ## Logging in with your token
@@ -40,9 +40,7 @@ this done, if there is no error, you can now manipulate data.
 ```javascript
 const opts = {
   url: "<request url>",
-  method: "<request method>",
-  headers: {},
-  data: "<data>"
+  method: "<method>"
 }
 xl.request(opts).then(data =>{
   console.log(data);
@@ -55,7 +53,8 @@ It is not necessary to add the authorization header because the method automatic
 
 ### Finding user by gamertag
 ```javascript
-xl.people.find("<gamertag>").then(user =>{
+const amount = 15;
+xl.people.find("<gamertag>", amount).then(user =>{
   console.log(user);
 });
 ```
@@ -97,14 +96,16 @@ xl.people.achievement.get("<xuid>").then(user =>{
 
 ### Getting user activity
 ```javascript
-xl.people.activity.get("<xuid>").then(user =>{
+const amount = 100;
+xl.people.activity.get("<xuid>", amount).then(user =>{
   console.log(user);
 });
 ```
 
 ### Getting user screenshot
 ```javascript
-xl.people.screenshot.get("<xuid>").then(user =>{
+const amount = 100;
+xl.people.screenshot.get("<xuid>", amount).then(user =>{
   console.log(user);
 });
 ```
@@ -143,7 +144,8 @@ xl.chat.auth.get("<xuid>").then(console.log);
 
 ### Getting message
 ```javascript
-xl.chat.message.get("<xuid>").then(console.log);
+const amount = 100;
+xl.chat.message.get("<xuid>", amount).then(console.log);
 ```
 
 ### Sending message
