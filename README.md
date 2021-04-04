@@ -1,19 +1,19 @@
-<h1 align="center">Xbox Live</h1>
+<h1 align="center">App Xbox Live Api</h1>
 <p align="center">
-    <img src="https://img.shields.io/npm/dm/xbox-live-system.svg">
-    <img src="https://badge.fury.io/js/xbox-live-system.svg">
-    <img src="https://snyk.io/test/github/AtomScript/xbox-live-system/badge.svg">
+    <img src="https://img.shields.io/npm/dm/app-xbox-live.svg">
+    <img src="https://badge.fury.io/js/app-xbox-live.svg">
+    <img src="https://snyk.io/test/github/AtomScript/app-xbox-live/badge.svg">
 </p>
 
 ## Install
 ```bash
-npm i xbox-live-system
+npm i app-xbox-live
 ```
 
 ## Getting started
 First, have your account token, if you don't have a token, try it to get your token:
 ```javascript
-const xls = require("xbox-live-system");
+const xls = require("app-xbox-live");
 
 //This method is based on Async/await.
 const token = await xls.Token("<your email>", "<your password>");
