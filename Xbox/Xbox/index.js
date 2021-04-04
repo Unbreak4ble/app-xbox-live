@@ -141,7 +141,7 @@ Connection: "Keep-Alive",
   if(err.response.status === 401)
   reject("Invalid token.");
   else
-  reject("Unknown error.");
+  reject("Unknown error. " + err);
 });
     });
   }
@@ -203,7 +203,7 @@ Connection: "Keep-Alive",
   if(err.response.status === 401)
   reject("Invalid token.");
   else
-  reject("Unknown error.");
+  reject("Unknown error. " + err);
 });
     });
   }
@@ -233,7 +233,7 @@ Connection: "Keep-Alive",
   if(err.response.status === 401)
   reject("Invalid token.");
   else
-  reject("Unknown error.");
+  reject("Unknown error. " + err);
 });
     });
   }
@@ -272,7 +272,7 @@ Connection: "Keep-Alive",
   if(err.response.status === 401)
   reject("Invalid token.");
   else
-  reject("Unknown error.");
+  reject("Unknown error. " + err);
 });
     });
   },
@@ -300,7 +300,7 @@ Connection: "Keep-Alive",
   if(err.response.status === 401)
   reject("Invalid token.");
   else
-  reject("Unknown error.");
+  reject("Unknown error. " + err);
 });
     });
   }
@@ -383,7 +383,7 @@ Connection: "Keep-Alive",
   if(err.response.status === 401)
   reject("Invalid token.");
   else
-  reject("Unknown error.");
+  reject("Unknown error. " + err);
 });
     });
   }
@@ -417,7 +417,7 @@ Connection: "Keep-Alive",
   if(err.response.status === 401)
   reject("Invalid token.");
   else
-  reject("Unknown error.");
+  reject("Unknown error. " + err);
 });
     });
       }
@@ -451,7 +451,7 @@ Connection: "Keep-Alive",
   if(err.response.status === 401)
   reject("Invalid token.");
   else
-  reject("Unknown error.");
+  reject("Unknown error. " + err);
 });
     });
   }
@@ -484,7 +484,7 @@ Connection: "Keep-Alive",
   if(err.response.status === 401)
   reject("Invalid token.");
   else
-  reject("Unknown error.");
+  reject("Unknown error. " + err);
 });
     });
   },
@@ -517,7 +517,7 @@ Connection: "Keep-Alive",
   if(err.response.status === 401)
   reject("Invalid token.");
   else
-  reject("Unknown error.");
+  reject("Unknown error. " + err);
 });
     });
   }
@@ -550,7 +550,7 @@ Connection: "Keep-Alive",
   if(err.response.status === 401)
   reject("Invalid token.");
   else
-  reject("Unknown error.");
+  reject("Unknown error. " + err);
 });
     });
   },
@@ -583,7 +583,7 @@ Connection: "Keep-Alive",
   if(err.response.status === 401)
   reject("Invalid token.");
   else
-  reject("Unknown error.");
+  reject("Unknown error. " + err);
 });
     });
   }
@@ -618,7 +618,7 @@ Connection: "Keep-Alive",
   if(err.response.status === 401)
   reject("Invalid token.");
   else
-  reject("Unknown error.");
+  reject("Unknown error. " + err);
 });
     });
   }
@@ -652,7 +652,7 @@ Connection: "Keep-Alive",
   if(err.response.status === 401)
   reject("Invalid token.");
   else
-  reject("Unknown error.");
+  reject("Unknown error. " + err);
 });
     });
   }
@@ -716,7 +716,7 @@ Connection: "Keep-Alive",
   if(err.response.status === 401)
   reject("Invalid token.");
   else
-  reject("Unknown error.");
+  reject("Unknown error. " + err);
 });
     });
   }
@@ -755,7 +755,7 @@ Connection: "Keep-Alive",
   if(err.response.status === 401)
   reject("Invalid token.");
   else
-  reject("Unknown error.");
+  reject("Unknown error. " + err);
 });
     });
   },
@@ -788,7 +788,7 @@ Connection: "Keep-Alive",
   if(err.response.status === 401)
   reject("Invalid token.");
   else
-  reject("Unknown error.");
+  reject("Unknown error. " + err);
 });
     });
   }
@@ -822,7 +822,7 @@ Connection: "Keep-Alive",
   if(err.response.status === 401)
   reject("Invalid token.");
   else
-  reject("Unknown error.");
+  reject("Unknown error. " + err);
 });
     });
   }
@@ -860,7 +860,7 @@ Connection: "Keep-Alive",
   if(err.response.status === 401)
   reject("Invalid token.");
   else
-  reject("Unknown error.");
+  reject("Unknown error. " + err);
 });
     });
   }
@@ -894,7 +894,7 @@ Connection: "Keep-Alive",
   if(err.response.status === 401)
   reject("Invalid token.");
   else
-  reject("Unknown error.");
+  reject("Unknown error. " + err);
 });
     });
   }
@@ -928,7 +928,7 @@ Connection: "Keep-Alive",
   if(err.response.status === 401)
   reject("Invalid token.");
   else
-  reject("Unknown error.");
+  reject("Unknown error. " + err);
 });
     });
   }
@@ -963,12 +963,18 @@ Connection: "Keep-Alive",
   if(err.response.status === 401)
   reject("Invalid token.");
   else
-  reject("Unknown error.");
+  reject("Unknown error. " + err);
 });
     });
   }
     }
-   }
+  }
+    
+  
+  
+  
+  
+  
   };
   
   
