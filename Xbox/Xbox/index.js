@@ -276,10 +276,20 @@ Connection: "Keep-Alive",
 });
     });
   },
-    get: (xuid) => {
+    get: (xuid, amount) => {
     return new Promise((resolve, reject) =>{
+      
+      if(amount && xuid){
+        if((typeof amount).toLowerCase() !== "number") reject("The type of the amount argument must be numeric.");
+        
+        if((typeof xuid).toLowerCase() !== "string") reject("The type of xuid argument must be string");
+        
+      }else{
+        reject("Invalid parameter.");
+      }
+      
       const opts = {
-        url: `https://xblmessaging.xboxlive.com:443/network/xbox/users/me/conversations/users/xuid(${xuid})?maxItems=100`,
+        url: `https://xblmessaging.xboxlive.com:443/network/xbox/users/me/conversations/users/xuid(${xuid})?maxItems=${amount}`,
       method: "GET",
       headers: {
    "x-xbl-contract-version": 4,
@@ -522,10 +532,19 @@ Connection: "Keep-Alive",
     });
   }
   },
-  find: (gamertag) =>{
+  find: (gamertag, amount) =>{
     return new Promise((resolve, reject) =>{
+      if(amount && gamertag){
+        if((typeof amount).toLowerCase() !== "number") reject("The type of the amount argument must be numeric.");
+        
+        if((typeof gamertag).toLowerCase() !== "string") reject("The type of gamertag argument must be string");
+        
+      }else{
+        reject("Invalid parameter.");
+      }
+      
       const opts = {
-        url: `https://peoplehub.xboxlive.com:443/users/me/people/search/decoration/detail,preferredColor?q=${gamertag}&maxItems=15`,
+        url: `https://peoplehub.xboxlive.com:443/users/me/people/search/decoration/detail,preferredColor?q=${gamertag}&maxItems=${amount}`,
       method: "GET",
       headers: {
    "x-xbl-contract-version": 4,
@@ -555,10 +574,19 @@ Connection: "Keep-Alive",
     });
   },
   activity:{
-    get: (xuid) =>{
+    get: (xuid, amount) =>{
     return new Promise((resolve, reject) =>{
+      if(amount && xuid){
+        if((typeof amount).toLowerCase() !== "number") reject("The type of the amount argument must be numeric.");
+        
+        if((typeof xuid).toLowerCase() !== "string") reject("The type of xuid argument must be string");
+        
+      }else{
+        reject("Invalid parameter.");
+      }
+      
       const opts = {
-        url: `https://avty.xboxlive.com:443/users/xuid(${xuid})/activity/history?excludeTypes=Played&numItems=50`,
+        url: `https://avty.xboxlive.com:443/users/xuid(${xuid})/activity/history?excludeTypes=Played&numItems=${amount}`,
       method: "GET",
       headers: {
    "x-xbl-contract-version": 4,
@@ -589,10 +617,19 @@ Connection: "Keep-Alive",
   }
   },
   screenshot:{
-    get: (xuid) =>{
+    get: (xuid, amount) =>{
     return new Promise((resolve, reject) =>{
+      if(amount && xuid){
+        if((typeof amount).toLowerCase() !== "number") reject("The type of the amount argument must be numeric.");
+        
+        if((typeof xuid).toLowerCase() !== "string") reject("The type of xuid argument must be string");
+        
+      }else{
+        reject("Invalid parameter.");
+      }
+      
       const opts = {
-        url: `https://avty.xboxlive.com:443/users/xuid(${xuid})/activity/history/unshared?activityTypes=Screenshot&numItems=100uid`,
+        url: `https://avty.xboxlive.com:443/users/xuid(${xuid})/activity/history/unshared?activityTypes=Screenshot&numItems=${amount}uid`,
       method: "GET",
       headers: {
    "x-xbl-contract-version": 2,
