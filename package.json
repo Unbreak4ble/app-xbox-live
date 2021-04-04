@@ -1,8 +1,8 @@
 {
-	"name": "xbox-live.js",
-	"version": "1.0.1",
+	"name": "app-xbox-live",
+	"version": "1.0.0",
 	"main": "index.js",
-	"repository": "git@github.com:AtomScript/xbox-live.js.git",
+	"repository": "git@github.com:AtomScript/app-xbox-live.git",
 	"author": "Rafael",
 	"license": "MIT",
 	"devDependencies": {
