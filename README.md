@@ -1,19 +1,19 @@
 <h1 align="center">Xbox Live</h1>
 <p align="center">
-    <img src="https://img.shields.io/npm/dm/xbox-live.js.svg">
-    <img src="https://badge.fury.io/js/xbox-live.js.svg">
-    <img src="https://snyk.io/test/github/AtomScript/xbox-live.js/badge.svg">
+    <img src="https://img.shields.io/npm/dm/xbox-live-system.svg">
+    <img src="https://badge.fury.io/js/xbox-live-system.svg">
+    <img src="https://snyk.io/test/github/AtomScript/xbox-live-system/badge.svg">
 </p>
 
 ## Install
 ```bash
-npm i xbox-live.js
+npm i xbox-live-system
 ```
 
 ## Getting started
 First, have your account token, if you don't have a token, try it to get your token:
 ```javascript
-const xls = require("xbox-live.js");
+const xls = require("xbox-live-system");
 
 //This method is based on Async/await.
 const token = await xls.Token("<your email>", "<your password>");
