@@ -5,6 +5,7 @@
     <img src="https://snyk.io/test/github/AtomScript/app-xbox-live/badge.svg">
 </p>
 
+
 ## Install
 ```bash
 npm i app-xbox-live
@@ -117,6 +118,27 @@ xl.people.games.get("<xuid>").then(user =>{
 });
 ```
 
+### Getting user presence
+```javascript
+xl.people.presence.get("<xuid>").then(user =>{
+  console.log(user);
+});
+```
+
+### Adding people
+```javascript
+xl.people.add("<xuid>").then(() =>{
+  console.log("success");
+});
+```
+
+### Removing people
+```javascript
+xl.people.remove("<xuid>").then(() =>{
+  console.log("success");
+});
+```
+
 
 <h2 align="center"> Club </h2>
 
@@ -128,6 +150,18 @@ xl.club.find("<club name>").then(console.log);
 ### Getting club by id
 ```javascript
 xl.club.get("<club id>").then(console.log);
+```
+
+### Getting club feed
+```javascript
+const amount = 50;
+xl.club.feed.get("<club id>", amount).then(console.log);
+```
+
+### Getting club chat
+```javascript
+const amount = 50;
+xl.club.chat.get("<club id>", amount).then(console.log);
 ```
 
 <h2 align="center"> Chat </h2>
