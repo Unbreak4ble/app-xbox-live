@@ -188,6 +188,15 @@ xl.chat.message.send("<message>", "<xuid>").then(console.log);
 ```
 
 
+<h2 align="center"> title </h2>
+
+### Getting title by id
+```javascript
+xl.title.get("<id>").then(console.log);
+```
+
+
+
 <h2 align="center"> Me </h2>
 
 ### Getting account privacy settings
