@@ -902,6 +902,43 @@ Connection: "Keep-Alive",
   
   
   
+  //------------------ title ------------------
+  title = {
+    get: (xuid) =>{
+      return new Promise((resolve, reject) =>{
+        const dat = {
+	"titleIds":[
+		xuid
+	]
+        }
+        
+      const opts = {
+        url: `https://titlehub.xboxlive.com:443/titles/batch/decoration/detail,image,achievement,scid`,
+      method: "POST",
+      headers: {
+   "x-xbl-contract-version": 2,
+accept: "application/json",
+authorization: this.#_token,
+"accept-language": "en-US",
+"Content-Length": Buffer.byteLength(JSON.stringify(dat), "utf8"),
+Connection: "Keep-Alive",
+"Accept-Encoding": "gzip",
+"User-Agent": "okhttp/4.9.1"
+ },
+ data: dat
+      };
+      
+      axios(opts).then(res =>{
+        resolve(res.data);
+      }).catch(err =>{
+  if(err.response.status === 401)
+  reject("Invalid token.");
+  else
+  reject("Unknown error. " + err);
+});
+    });
+    }
+  };
   
   
   
@@ -910,6 +947,13 @@ Connection: "Keep-Alive",
   
   
   
+  
+  
+  
+  
+  
+  
+
   
   
   
