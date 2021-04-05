@@ -78,6 +78,12 @@ reject("you need the URL and the request method.");
   };
   
   
+  
+  
+  
+  
+  
+  
   //---------------- club ------------------
   
  
@@ -144,6 +150,85 @@ Connection: "Keep-Alive",
   reject("Unknown error. " + err);
 });
     });
+  },
+  chat: {
+    get: (xuid, amount) =>{
+      return new Promise((resolve, reject) =>{
+    if(amount && xuid){
+        if((typeof amount).toLowerCase() !== "number") reject("The type of the amount argument must be numeric.");
+        
+        if((typeof xuid).toLowerCase() !== "string") reject("The type of xuid argument must be string");
+        
+      }else{
+        reject("Invalid parameter.");
+      }
+      
+    
+      const opts = {
+        url: `https://chatfd.xboxlive.com:443/channels/Club/${xuid}/messages/history?maxItems=${amount}`,
+      method: "GET",
+      headers: {
+  // "x-xbl-contract-version": 2,
+accept: "application/json",
+authorization: this.#_token,
+"accept-language": "en-US",
+Connection: "Keep-Alive",
+"Accept-Encoding": "gzip",
+"User-Agent": "okhttp/4.9.1"
+ }
+      };
+      
+      axios(opts).then(res =>{
+        resolve(res.data);
+      }).catch(err =>{
+  if(err.response.status === 401)
+  reject("Invalid token.");
+  else
+  reject("Unknown error. " + err);
+});
+    });
+    }
+  },
+  feed: {
+    get: (xuid, amount) =>{
+      return new Promise((resolve, reject) =>{
+     if(amount && xuid){
+        if((typeof amount).toLowerCase() !== "number") reject("The type of the amount argument must be numeric.");
+        
+        if((typeof xuid).toLowerCase() !== "string") reject("The type of xuid argument must be string");
+        
+      }else{
+        reject("Invalid parameter.");
+      }
+      
+      
+      const opts = {
+        url: `https://avty.xboxlive.com:443/clubs/clubId(${xuid})/activity/feed?numItems=${amount}`,
+      method: "GET",
+      headers: {
+   "x-xbl-contract-version": 13,
+
+accept: "application/json",
+authorization: this.#_token,
+"accept-language": "en-US",
+
+Connection: "Keep-Alive",
+"Accept-Encoding": "gzip",
+"User-Agent": "okhttp/4.9.1"
+
+ }
+      };
+      
+      axios(opts).then(res =>{
+        resolve(res.data);
+      }).catch(err =>{
+  if(err.response.status === 401)
+  reject("Invalid token.");
+  else
+  reject("Unknown error. " + err);
+});
+    });
+    }
   }
   };
   
@@ -693,6 +778,115 @@ Connection: "Keep-Alive",
 });
     });
   }
+  },
+  add: (xuid) => {
+    return new Promise((resolve, reject) =>{
+      const dat = {
+	"xuids":[
+		xuid
+	]
+      }
+      
+      const opts = {
+        url: `https://social.xboxlive.com:443/users/me/people/xuids?method=add`,
+      method: "POST",
+      headers: {
+   "x-xbl-contract-version": 1,
+accept: "application/json",
+authorization: this.#_token,
+"accept-language": "en-US",
+"Content-Length": Buffer.byteLength(JSON.stringify(dat), "utf8"),
+Connection: "Keep-Alive",
+"Accept-Encoding": "gzip",
+"User-Agent": "okhttp/4.9.1"
+ },
+ data: dat
+      };
+      
+      axios(opts).then(res =>{
+        resolve();
+      }).catch(err =>{
+  if(err.response.status === 401)
+  reject("Invalid token.");
+  else if(err.response.status === 400 && err.response.data)
+    reject(err.response.data);
+  else
+  reject("Unknown error. " + err);
+});
+    });
+  },
+  remove: (xuid) => {
+       return new Promise((resolve, reject) =>{
+      const dat = {
+	"xuids":[
+		xuid
+	]
+      }
+      
+      const opts = {
+        url: `https://social.xboxlive.com:443/users/me/people/xuids?method=remove`,
+      method: "POST",
+      headers: {
+   "x-xbl-contract-version": 1,
+accept: "application/json",
+authorization: this.#_token,
+"accept-language": "en-US",
+"Content-Length": Buffer.byteLength(JSON.stringify(dat), "utf8"),
+Connection: "Keep-Alive",
+"Accept-Encoding": "gzip",
+"User-Agent": "okhttp/4.9.1"
+ },
+ data: dat
+      };
+      
+      axios(opts).then(res =>{
+        resolve();
+      }).catch(err =>{
+  if(err.response.status === 401)
+  reject("Invalid token.");
+  else if(err.response.status === 400 && err.response.data)
+    reject(err.response.data);
+  else
+  reject("Unknown error. " + err);
+});
+    });
+  },
+  presence: {
+    get: (xuid) =>{
+      return new Promise((resolve, reject) =>{
+        const dat = {
+          "level":"all",
+	"users":[
+		xuid
+	]
+        }
+        
+      const opts = {
+        url: `https://userpresence.xboxlive.com:443/users/batch?level=all`,
+      method: "POST",
+      headers: {
+   "x-xbl-contract-version": 3,
+accept: "application/json",
+authorization: this.#_token,
+"accept-language": "en-US",
+"Content-Length": Buffer.byteLength(JSON.stringify(dat), "utf8"),
+Connection: "Keep-Alive",
+"Accept-Encoding": "gzip",
+"User-Agent": "okhttp/4.9.1"
+ },
+ data: dat
+      };
+      
+      axios(opts).then(res =>{
+        resolve(res.data);
+      }).catch(err =>{
+  if(err.response.status === 401)
+  reject("Invalid token.");
+  else
+  reject("Unknown error. " + err);
+});
+    });
+    }
   }
   };
   
@@ -1006,11 +1200,7 @@ Connection: "Keep-Alive",
   }
     }
   }
-    
-  
-  
-  
-  
+   
   
   };
   
