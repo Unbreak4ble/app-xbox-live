@@ -583,40 +583,6 @@ Connection: "Keep-Alive",
 });
     });
   },
-  achievement:{
-    get: (xuid) =>{
-    return new Promise((resolve, reject) =>{
-      const opts = {
-        url: `https://titlehub.xboxlive.com:443/users/xuid(${xuid})/titles/titleHistory/decoration/GamePass,Achievement,Stats`,
-      method: "GET",
-      headers: {
-   "x-xbl-contract-version": 2,
-
-accept: "application/json",
-authorization: this.#_token,
-"accept-language": "en-US",
-
-
-
-//
-Connection: "Keep-Alive",
-"Accept-Encoding": "gzip",
-"User-Agent": "okhttp/4.9.1"
-
- }
-      };
-      
-      axios(opts).then(res =>{
-        resolve(res.data);
-      }).catch(err =>{
-  if(err.response.status === 401)
-  reject("Invalid token.");
-  else
-  reject("Unknown error. " + err);
-});
-    });
-  }
-  },
   find: (gamertag, amount) =>{
     return new Promise((resolve, reject) =>{
       if(amount && gamertag){
@@ -887,6 +853,150 @@ Connection: "Keep-Alive",
 });
     });
     }
+  },
+  recommendation:{
+      get: () =>{
+    return new Promise((resolve, reject) =>{
+      const opts = {
+        url: `https://peoplehub.xboxlive.com:443/users/me/people/recommendations`,
+      method: "GET",
+      headers: {
+   "x-xbl-contract-version": 1,
+
+accept: "application/json",
+authorization: this.#_token,
+"accept-language": "en-US",
+Connection: "Keep-Alive",
+"Accept-Encoding": "gzip",
+"User-Agent": "okhttp/4.9.1"
+
+ }
+      };
+      
+      axios(opts).then(res =>{
+        resolve(res.data);
+      }).catch(err =>{
+  if(err.response.status === 401)
+  reject("Invalid token.");
+  else
+  reject("Unknown error. " + err);
+});
+    });
+  }
+    },
+    achievement:{
+    stats:{
+      get: (xuid, titleId) =>{
+         return new Promise((resolve, reject) =>{
+   if(!xuid || !titleId) return;
+   
+    let dat = {
+      "arrangebyfield":"xuid",
+	"stats":[
+		{
+			"name":"MinutesPlayed",
+			"titleid": titleId
+		}
+	],
+	"xuids":[
+		xuid
+	]
+    }
+    
+      const opts = {
+        url: `https://userstats.xboxlive.com:443/batch`,
+      method: "POST",
+      headers: {
+   "x-xbl-contract-version": 2,
+accept: "application/json",
+authorization: this.#_token,
+"accept-language": "en-US",
+"Content-Length": Buffer.byteLength(JSON.stringify(dat), "utf8"),
+Connection: "Keep-Alive",
+"Accept-Encoding": "gzip",
+"User-Agent": "okhttp/4.9.1"
+ },
+ data: dat
+      };
+      
+      axios(opts).then(res =>{
+        resolve(res.data);
+      }).catch(err =>{
+  if(err.response.status === 401)
+  reject("Invalid token.");
+  else
+  reject("Unknown error. " + err);
+});
+    });
+      }
+    },
+    all:{
+    get: (xuid) =>{
+    return new Promise((resolve, reject) =>{
+      const opts = {
+        url: `https://titlehub.xboxlive.com:443/users/xuid(${xuid})/titles/titleHistory/decoration/GamePass,Achievement,Stats`,
+      method: "GET",
+      headers: {
+   "x-xbl-contract-version": 2,
+accept: "application/json",
+authorization: this.#_token,
+"accept-language": "en-US",
+Connection: "Keep-Alive",
+"Accept-Encoding": "gzip",
+"User-Agent": "okhttp/4.9.1"
+
+ }
+      };
+      
+      axios(opts).then(res =>{
+        resolve(res.data);
+      }).catch(err =>{
+  if(err.response.status === 401)
+  reject("Invalid token.");
+  else
+  reject("Unknown error. " + err);
+});
+    });
+  }
+    },
+    get: (xuid, titleId, amount) =>{
+    return new Promise((resolve, reject) =>{
+      if(xuid && amount && titleId){
+        if((typeof amount).toLowerCase() !== "number") reject("The type of the amount argument must be numeric.");
+        
+        
+        if((typeof xuid).toLowerCase() !== "string") reject("The type of xuid argument must be string.");
+        
+      }else{
+        reject("Invalid parameter.");
+      }
+      
+      
+      const opts = {
+        url: `https://achievements.xboxlive.com:443/users/xuid(${xuid})/achievements?titleId=${titleId}&maxItems=${amount}`,
+      method: "GET",
+      headers: {
+   "x-xbl-contract-version": 4,
+accept: "application/json",
+authorization: this.#_token,
+"accept-language": "en-US",
+Connection: "Keep-Alive",
+"Accept-Encoding": "gzip",
+"User-Agent": "okhttp/4.9.1"
+
+ }
+      };
+      
+      axios(opts).then(res =>{
+        resolve(res.data);
+      }).catch(err =>{
+  if(err.response.status === 401)
+  reject("Invalid token.");
+  else
+  reject("Unknown error. " + err);
+});
+    });
+  }
   }
   };
   
