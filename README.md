@@ -74,6 +74,13 @@ xl.people.profile.get("<xuid>").then(user =>{
 });
 ```
 
+### Getting recommendation users
+```javascript
+xl.people.recommendation.get().then(user =>{
+  console.log(user);
+});
+```
+
 ### Getting user setting
 ```javascript
 xl.people.setting.get("<xuid>").then(user =>{
@@ -88,9 +95,23 @@ xl.people.summary.get("<xuid>").then(user =>{
 });
 ```
 
-### Getting user achievement
+### Getting all the user achievement
 ```javascript
-xl.people.achievement.get("<xuid>").then(user =>{
+xl.people.achievement.all.get("<xuid>").then(user =>{
+  console.log(user);
+});
+```
+
+### Getting specific user achievement
+```javascript
+xl.people.achievement.get("<xuid>", titleId, amount).then(user =>{
+  console.log(user);
+});
+```
+
+### Getting user achievement stats
+```javascript
+xl.people.achievement.stats.get("<xuid>", titleId).then(user =>{
   console.log(user);
 });
 ```
@@ -125,14 +146,14 @@ xl.people.presence.get("<xuid>").then(user =>{
 });
 ```
 
-### Adding people
+### Adding friend
 ```javascript
 xl.people.add("<xuid>").then(() =>{
   console.log("success");
 });
 ```
 
-### Removing people
+### Removing friend
 ```javascript
 xl.people.remove("<xuid>").then(() =>{
   console.log("success");
@@ -194,7 +215,6 @@ xl.chat.message.send("<message>", "<xuid>").then(console.log);
 ```javascript
 xl.title.get("<id>").then(console.log);
 ```
-
 
 
 <h2 align="center"> Me </h2>
