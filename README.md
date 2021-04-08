@@ -133,6 +133,13 @@ xl.people.achievement.titles.get("<xuid>").then(console.log);
 xl.people.achievement.titles.complete.get("<xuid>").then(console.log);
 ```
 
+### Getting user achievement titles
+```javascript
+xl.people.achievement.titles.get("<xuid>").then(user =>{
+  console.log(user);
+});
+```
+
 ### Getting user activity
 ```javascript
 const amount = 100;
@@ -192,6 +199,11 @@ xl.people.clubs.get("<xuid>").then(console.log);
 ### Getting user friends
 ```javascript
 xl.people.friends.get("<xuid>").then(console.log);
+```
+
+### Getting gameclip
+```javascript
+xl.people.gameclip.get("<xuid>", amount).then(console.log);
 ```
 
 
