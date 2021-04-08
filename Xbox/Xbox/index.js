@@ -466,9 +466,7 @@ Connection: "Keep-Alive",
 		"Watermarks",
 		"RealName"
 	],
-	"userIds":[
-		xuid
-	]
+	"userIds": Array.isArray(xuid) ? xuid : [xuid]
 }
       };
       
@@ -714,6 +712,8 @@ Connection: "Keep-Alive",
   games:{
     get: (xuid) =>{
     return new Promise((resolve, reject) =>{
+   if(!xuid) return;
+   
       const opts = {
         url: `https://titlehub.xboxlive.com:443/users/xuid(${xuid})/titles/titlehistory/decoration/achievement,image,scid`,
       method: "GET",
@@ -747,10 +747,11 @@ Connection: "Keep-Alive",
   },
   add: (xuid) => {
     return new Promise((resolve, reject) =>{
+   if(!xuid) return;
+   
+   
       const dat = {
-	"xuids":[
-		xuid
-	]
+	"xuids": Array.isArray(xuid) ? xuid : [xuid]
       }
       
       const opts = {
@@ -783,10 +784,10 @@ Connection: "Keep-Alive",
   },
   remove: (xuid) => {
        return new Promise((resolve, reject) =>{
+     if(!xuid) return;
+     
       const dat = {
-	"xuids":[
-		xuid
-	]
+	"xuids": Array.isArray(xuid) ? xuid : [xuid]
       }
       
       const opts = {
@@ -822,9 +823,7 @@ Connection: "Keep-Alive",
       return new Promise((resolve, reject) =>{
         const dat = {
           "level":"all",
-	"users":[
-		xuid
-	]
+	"users": Array.isArray(xuid) ? xuid : [xuid]
         }
         
       const opts = {
@@ -885,6 +884,38 @@ Connection: "Keep-Alive",
   }
     },
     achievement:{
+      titles: {
+        get: (xuid) =>{
+         return new Promise((resolve, reject) =>{
+   if(!xuid) return;
+   
+    
+    
+      const opts = {
+        url: `https://usertitles.xboxlive.com:443/users/xuid(${xuid})/titles`,
+      method: "GET",
+      headers: {
+   "x-xbl-contract-version": 1,
+accept: "application/json",
+authorization: this.#_token,
+"accept-language": "en-US",
+Connection: "Keep-Alive",
+"Accept-Encoding": "gzip",
+"User-Agent": "okhttp/4.9.1"
+ }
+      };
+      
+      axios(opts).then(res =>{
+        resolve(res.data);
+      }).catch(err =>{
+  if(err.response.status === 401)
+  reject("Invalid token.");
+  else
+  reject("Unknown error. " + err);
+});
+    });
+      }
+      },
     stats:{
       get: (xuid, titleId) =>{
          return new Promise((resolve, reject) =>{
@@ -898,9 +929,7 @@ Connection: "Keep-Alive",
 			"titleid": titleId
 		}
 	],
-	"xuids":[
-		xuid
-	]
+	"xuids": Array.isArray(xuid) ? xuid : [xuid]
     }
     
       const opts = {
@@ -933,6 +962,8 @@ Connection: "Keep-Alive",
     all:{
     get: (xuid) =>{
     return new Promise((resolve, reject) =>{
+  if(!xuid) return;
+  
       const opts = {
         url: `https://titlehub.xboxlive.com:443/users/xuid(${xuid})/titles/titleHistory/decoration/GamePass,Achievement,Stats`,
       method: "GET",
@@ -997,7 +1028,54 @@ Connection: "Keep-Alive",
 });
     });
   }
+  },
+  gameclip:{
+    get: (xuid, amount) =>{
+    return new Promise((resolve, reject) =>{
+  
+  if(xuid && amount){
+        if((typeof amount).toLowerCase() !== "number") reject("The type of the amount argument must be numeric.");
+        
+        
+        if((typeof xuid).toLowerCase() !== "string") reject("The type of xuid argument must be string.");
+        
+      }else{
+        reject("Invalid parameter.");
+      }
+  
+  const dat = {
+    "categories":[
+		"Gameclips"
+	]
   }
+  
+      const opts = {
+        url: `https://activityhub.xboxlive.com:443/hot/users/xuid(${xuid})?maxItems=${amount}`,
+      method: "POST",
+      headers: {
+   "x-xbl-contract-version": 1,
+accept: "application/json",
+authorization: this.#_token,
+"accept-language": "en-US",
+"Content-Length": Buffer.byteLength(JSON.stringify(dat), "utf8"),
+Connection: "Keep-Alive",
+"Accept-Encoding": "gzip",
+"User-Agent": "okhttp/4.9.1"
+ },
+ data: dat
+      };
+      
+      axios(opts).then(res =>{
+        resolve(res.data);
+      }).catch(err =>{
+  if(err.response.status === 401)
+  reject("Invalid token.");
+  else
+  reject("Unknown error. " + err);
+});
+    });
+  }
+    }
   };
   
   
@@ -1016,10 +1094,10 @@ Connection: "Keep-Alive",
   title = {
     get: (xuid) =>{
       return new Promise((resolve, reject) =>{
+      if(!xuid) return;
+      
         const dat = {
-	"titleIds":[
-		xuid
-	]
+	"titleIds": Array.isArray(xuid) ? xuid : [xuid]
         }
         
       const opts = {
