@@ -116,6 +116,13 @@ xl.people.achievement.stats.get("<xuid>", titleId).then(user =>{
 });
 ```
 
+### Getting user achievement titles
+```javascript
+xl.people.achievement.titles.get("<xuid>").then(user =>{
+  console.log(user);
+});
+```
+
 ### Getting user activity
 ```javascript
 const amount = 100;
@@ -158,6 +165,11 @@ xl.people.add("<xuid>").then(() =>{
 xl.people.remove("<xuid>").then(() =>{
   console.log("success");
 });
+```
+
+### Getting gameclip
+```javascript
+xl.people.gameclip.get("<xuid>", amount).then(console.log);
 ```
 
 
