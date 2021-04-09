@@ -6,6 +6,7 @@
 </p>
 
 
+
 ## Install
 ```bash
 npm i app-xbox-live
@@ -123,6 +124,13 @@ xl.people.achievement.titles.get("<xuid>").then(user =>{
 });
 ```
 
+### Getting complete user achievement titles
+```javascript
+xl.people.achievement.titles.complete.get("<xuid>").then(user =>{
+  console.log(user);
+});
+```
+
 ### Getting user activity
 ```javascript
 const amount = 100;
@@ -167,9 +175,19 @@ xl.people.remove("<xuid>").then(() =>{
 });
 ```
 
-### Getting gameclip
+### Getting user gameclip
 ```javascript
 xl.people.gameclip.get("<xuid>", amount).then(console.log);
+```
+
+### Getting user clubs
+```javascript
+xl.people.clubs.get("<xuid>").then(console.log);
+```
+
+### Getting user friends
+```javascript
+xl.people.friends.get("<xuid>").then(console.log);
 ```
 
 
@@ -189,6 +207,11 @@ xl.club.get("<club id>").then(console.log);
 ```javascript
 const amount = 50;
 xl.club.feed.get("<club id>", amount).then(console.log);
+```
+
+### Sending club feed
+```javascript
+xl.club.feed.send("<club id>", "<message>").then(console.log);
 ```
 
 ### Getting club chat
@@ -217,7 +240,7 @@ xl.chat.message.get("<xuid>", amount).then(console.log);
 
 ### Sending message
 ```javascript
-xl.chat.message.send("<message>", "<xuid>").then(console.log);
+xl.chat.message.send("<xuid>", "<message>").then(console.log);
 ```
 
 
