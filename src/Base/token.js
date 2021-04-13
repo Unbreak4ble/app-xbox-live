@@ -43,7 +43,7 @@ axios(options).then(tok =>callback(tok.data)).catch(reject);
 
 function getToken(token){
   return new Promise((callback, reject) =>{
- const accessToken = token.replace(/%([0-9]{1})b/gim, '+');
+ const accessToken = decodeURI(token);
   var datar = {
 	"Properties":{
 		"AuthMethod":"RPS",
