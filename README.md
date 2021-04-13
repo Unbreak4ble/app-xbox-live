@@ -56,109 +56,85 @@ It is not necessary to add the authorization header because the method automatic
 ### Finding user by gamertag
 ```javascript
 const amount = 15;
-xl.people.find("<gamertag>", amount).then(user =>{
-  console.log(user);
-});
+xl.people.find("<gamertag>", amount).then(console.log);
 ```
 
 ### Getting user by xuid
 ```javascript
-xl.people.get("<xuid>").then(user =>{
-  console.log(user);
-});
+xl.people.get("<xuid>").then(console.log);
 ```
 
 ### Getting user profile
 ```javascript
-xl.people.profile.get("<xuid>").then(user =>{
-  console.log(user);
-});
+xl.people.profile.get("<xuid>").then(console.log);
+//     OR
+xl.people.profile.get(["<xuids>"]).then(console.log);
 ```
 
 ### Getting recommendation users
 ```javascript
-xl.people.recommendation.get().then(user =>{
-  console.log(user);
-});
+xl.people.recommendation.get().then(console.log);
 ```
 
 ### Getting user setting
 ```javascript
-xl.people.setting.get("<xuid>").then(user =>{
-  console.log(user);
-});
+xl.people.setting.get("<xuid>").then(console.log);
 ```
 
 ### Getting user summary
 ```javascript
-xl.people.summary.get("<xuid>").then(user =>{
-  console.log(user);
-});
+xl.people.summary.get("<xuid>").then(console.log);
 ```
 
 ### Getting all the user achievement
 ```javascript
-xl.people.achievement.all.get("<xuid>").then(user =>{
-  console.log(user);
-});
+xl.people.achievement.all.get("<xuid>").then(console.log);
 ```
 
 ### Getting specific user achievement
 ```javascript
-xl.people.achievement.get("<xuid>", titleId, amount).then(user =>{
-  console.log(user);
-});
+xl.people.achievement.get("<xuid>", titleId, amount).then(console.log);
 ```
 
 ### Getting user achievement stats
 ```javascript
-xl.people.achievement.stats.get("<xuid>", titleId).then(user =>{
-  console.log(user);
-});
+xl.people.achievement.stats.get("<xuid>", titleId).then(console.log);
+//     OR
+xl.people.achievement.stats.get(["<xuids>"], titleId).then(console.log);
 ```
 
 ### Getting user achievement titles
 ```javascript
-xl.people.achievement.titles.get("<xuid>").then(user =>{
-  console.log(user);
-});
+xl.people.achievement.titles.get("<xuid>").then(console.log);
 ```
 
 ### Getting complete user achievement titles
 ```javascript
-xl.people.achievement.titles.complete.get("<xuid>").then(user =>{
-  console.log(user);
-});
+xl.people.achievement.titles.complete.get("<xuid>").then(console.log);
 ```
 
 ### Getting user activity
 ```javascript
 const amount = 100;
-xl.people.activity.get("<xuid>", amount).then(user =>{
-  console.log(user);
-});
+xl.people.activity.get("<xuid>", amount).then(console.log);
 ```
 
 ### Getting user screenshot
 ```javascript
 const amount = 100;
-xl.people.screenshot.get("<xuid>", amount).then(user =>{
-  console.log(user);
-});
+xl.people.screenshot.get("<xuid>", amount).then(console.log);
 ```
 
 ### Getting user games
 ```javascript
-xl.people.games.get("<xuid>").then(user =>{
-  console.log(user);
-});
+xl.people.games.get("<xuid>").then(console.log);
 ```
 
 ### Getting user presence
 ```javascript
-xl.people.presence.get("<xuid>").then(user =>{
-  console.log(user);
-});
+xl.people.presence.get("<xuid>").then(console.log);
+//     OR
+xl.people.presence.get(["<xuids>"]).then(console.log);
 ```
 
 ### Adding friend
@@ -166,11 +142,19 @@ xl.people.presence.get("<xuid>").then(user =>{
 xl.people.add("<xuid>").then(() =>{
   console.log("success");
 });
+//    OR
+xl.people.add(["<xuids>"]).then(() =>{
+  console.log("success");
+});
 ```
 
 ### Removing friend
 ```javascript
 xl.people.remove("<xuid>").then(() =>{
+  console.log("success");
+});
+//     OR
+xl.people.remove(["<xuids>"]).then(() =>{
   console.log("success");
 });
 ```
@@ -249,6 +233,8 @@ xl.chat.message.send("<xuid>", "<message>").then(console.log);
 ### Getting title by id
 ```javascript
 xl.title.get("<id>").then(console.log);
+//     OR
+xl.title.get(["<ids>"]).then(console.log);
 ```
 
 
