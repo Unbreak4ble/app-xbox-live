@@ -15,7 +15,8 @@ function requiresIdentityConfirmation(body){
    }
 };
 
-function xstsToken(token, callback){
+function xstsToken(token){
+  return new Promise((callback, reject) =>{
   var datar = {
     'RelyingParty': 'http://xboxlive.com',
     'TokenType': 'JWT',
@@ -36,10 +37,12 @@ function xstsToken(token, callback){
     data: datar
   }
   
-return axios(options).then(tok =>callback(tok.data)).catch(console.log);
-};
+axios(options).then(tok =>callback(tok.data)).catch(reject);
+});
+}
 
-function getToken(token, callback){
+function getToken(token){
+  return new Promise((callback, reject) =>{
  const accessToken = token.replace(/%([0-9]{1})b/gim, '+');
   var datar = {
 	"Properties":{
@@ -68,7 +71,8 @@ Connection: "Keep-Alive",
     data: datar
   }
   
-return axios(options).then(tok =>callback(tok.data)).catch(console.log);
+axios(options).then(tok =>callback(tok.data)).catch(reject);
+});
 }
 
 function loadSite(callback){
@@ -107,6 +111,7 @@ function loadSite(callback){
 
 
 function getPreAuth(email, pass, callback){
+  return new Promise((callback, reject) =>{
   var access_token_callback = function (response, urlPoster) {
     var _a;
     let hash = "";
@@ -122,7 +127,7 @@ function getPreAuth(email, pass, callback){
             : `Invalid credentials or 2FA enabled.`;
         throw new Error(errorMessage);
     }else if (responseUrl === urlPoster) {
-       throw new Error('Invalid credentials. Incorrect email or password.');
+       reject('Invalid credentials. Incorrect email or password.');
     }
     
     
@@ -170,23 +175,41 @@ Cookie: data.cookie
     data: post_vals_qs
   };
   
-  axios(opts).then((resp)=> access_token_callback(resp, data.url_post)).catch(console.log);
+  
+  return axios(opts).then((resp)=>{
+    try{
+      access_token_callback(resp, data.url_post)
+    }
+    catch(err)
+    {
+     reject(err);
+    }
+  }).catch(reject);
+  });
   });
 };
 
 
 function getAuth(email, pass, callback){
-  getPreAuth(email, pass, calc =>{
+  return new Promise((callback, reject) =>{
+  getPreAuth(email, pass).then(calc =>{
     const tokens = [];
    
-    getToken(calc.token, dat =>{
-      xstsToken(dat.Token, data =>{
+   try{
+    getToken(calc.token).then(dat =>{
+      try{
+      xstsToken(dat.Token).then(data =>{
       const xui = data.DisplayClaims.xui[0];
       tokens.push(data.Token)
       tokens.push(xui.uhs);
       return callback(tokens);
-      });
-    });
+      }).catch(reject);
+      }catch(err){reject(err)};
+    }).catch(reject);
+   }catch(err){reject(err)};
+  }).catch(function(err){
+    reject(err);
+  });
   });
 };
 
@@ -230,18 +253,14 @@ Connection: "Keep-Alive",
 
 
 module.exports = (email, pass) =>{
-  return new Promise(resolve =>{
-    function start(){
- getAuth(email, pass, data =>{
+  return new Promise((resolve, reject) =>{
+  
+ getAuth(email, pass).then(data =>{
    const tokens = [];
    tokens.push(data[0]);
    tokens.push(data[1]);
   
    resolve(tokens);
- });
-    }
-    
-      start();
-    
+}).catch(function(err){reject(err)});
   });
 };
