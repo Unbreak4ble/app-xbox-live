@@ -1,8 +1,6 @@
 <h1 align="center">App Xbox Live Api</h1>
 <p align="center">
     <img src="https://img.shields.io/npm/dm/app-xbox-live.svg">
-    <img src="https://badge.fury.io/js/app-xbox-live.svg">
-    <img src="https://snyk.io/test/github/AtomScript/app-xbox-live/badge.svg">
 </p>
 
 
