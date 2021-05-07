@@ -4,7 +4,6 @@
 </p>
 
 
-
 ## Install
 ```bash
 npm i app-xbox-live
