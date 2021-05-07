@@ -4,7 +4,6 @@
 </p>
 
 
-
 ## Install
 ```bash
 npm i app-xbox-live
@@ -19,7 +18,7 @@ const xls = require("app-xbox-live");
 const token = await xls.Token("<your email>", "<your password>");
 //output: ["token", "uhs"]
 ```
-Note: The account cannot have 2-step verification. Preferably, use only an account that has only a password as security.
+Note: For 2-step accounts, authorization from the owner is required.
 
 Attention: the token, email and password must be kept secret, do not share or display it to anyone.
 The token is reset every 24 hours. Then you will need to obtain another token again after 24 hours.
