@@ -1,9 +1,9 @@
 {
 	"name": "app-xbox-live",
-	"version": "1.0.0",
+	"version": "1.2.6",
 	"main": "src/index.js",
-	"repository": "git@github.com:AtomScript/app-xbox-live.git",
-	"author": "Rafael",
+	"repository": "git@github.com:Unbreak4ble/app-xbox-live.git",
+	"author": "Raphael",
 	"license": "MIT",
 	"devDependencies": {
 		"eslint": "^7.23.0",
