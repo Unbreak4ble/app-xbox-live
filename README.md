@@ -4,6 +4,7 @@
 </p>
 
 
+
 ## Install
 ```bash
 npm i app-xbox-live
@@ -12,10 +13,9 @@ npm i app-xbox-live
 ## Getting started
 First, have your account token, if you don't have a token, try it to get your token:
 ```javascript
-const xls = require("app-xbox-live");
+const axl = require("app-xbox-live");
 
-//This method is based on Async/await.
-const token = await xls.Token("<your email>", "<your password>");
+const token = await axl.Token("<your email>", "<your password>");
 //output: ["token", "uhs"]
 ```
 Note: For 2-step accounts, authorization from the owner is required.
@@ -27,7 +27,14 @@ Microsoft does not allow to generate multiple tokens. Just generate 1 token and 
 
 ## Logging in with your token
 ```javascript
-const xl = new xls.Account(`XBL3.0 x=${token[1]};${token[0]}`);
+const xl = new axl.Account(`XBL3.0 x=${token[1]};${token[0]}`);
+```
+
+Or if you want to login directly, see below:
+
+## Login directly
+```javascript
+const xl = await axl.Login("<email>", "<password>");
 ```
 this done, if there is no error, you can now manipulate data.
 
@@ -35,7 +42,7 @@ this done, if there is no error, you can now manipulate data.
 <h1 align="center">Manipulating data</h1>
 <h2 align="center"> Request </h2>
 
-### Make a custom request on xbox live
+### Make a custom request
 ```javascript
 const opts = {
   url: "<request url>",
