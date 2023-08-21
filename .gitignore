@@ -1,6 +1,2 @@
 node_modules/
-<<<<<<< HEAD
 .github/
-=======
-package-lock.json
->>>>>>> main
