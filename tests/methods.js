@@ -4,6 +4,7 @@ const TEST_ARGS = {
 	PEOPLE_FIND: ["diego", 1]
 };
 
+/* some methods */
 function get_tests(account){
 	return {
 		"PEOPLE_FIND": account.people.find(TEST_ARGS.PEOPLE_FIND[0], TEST_ARGS.PEOPLE_FIND[1]),
@@ -20,7 +21,6 @@ function get_tests(account){
 }
 
 function test(account) {
-	/* only methods without parameters*/
 	let promises = [];
 	const TESTS = get_tests(account);
 	for(const key in TESTS){

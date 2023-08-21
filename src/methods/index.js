@@ -14,7 +14,8 @@ function handle_request(resolve, reject, opts) {
 			reject('Authorization failed');
 		else
 			reject(err);
-	}).catch(reject);
+	})
+	.catch(reject);
 }
 
 function validate_values(...args) {

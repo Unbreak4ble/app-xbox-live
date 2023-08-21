@@ -8,7 +8,7 @@ if(!(email && pass))
 	throwError("missing email or password arguments");
 
 app.Login(email, pass)
-.then(methods)
+.then((account) => (console.log("authentication passed"), methods(account)))
 .catch((err) => {
 	const msg = "general test failed\nreason: "+err;
 	throwError(msg);
