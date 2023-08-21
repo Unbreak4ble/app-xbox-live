@@ -1,5 +1,6 @@
 {
 	"name": "app-xbox-live",
+<<<<<<< HEAD
 	"version": "1.2.7",
 	"main": "src/index.js",
 	"repository": "git@github.com:Unbreak4ble/app-xbox-live.git",
@@ -13,6 +14,13 @@
 		"query-string": "6.14.1",
 		"cookie": "0.5.0"
 	},
+=======
+	"version": "1.2.6",
+	"main": "src/index.js",
+	"repository": "git@github.com:Unbreak4ble/app-xbox-live.git",
+	"author": "Raphael",
+	"license": "MIT",
+>>>>>>> main
 	"devDependencies": {
 		"eslint": "^7.23.0",
 		"eslint-config-prettier": "^8.1.0",
