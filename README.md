@@ -13,7 +13,6 @@ npm i app-xbox-live
 ## Getting started
 <<<<<<< HEAD
 - getting account token:
-=======
 First, have your account token, if you don't have a token, try it to get your token:
 >>>>>>> main
 ```javascript
@@ -24,7 +23,6 @@ const token = await axl.Token("<your email>", "<your password>");
 ```
 Note: For 2-step accounts, authorization from the owner is required.
 
-<<<<<<< HEAD
 Security: never display your token to anyone.
 
 
@@ -39,7 +37,6 @@ const xl = await axl.Login("<email>", "<password>");
 ```
 
 <h1 align="center">Avaiable methods</h1>
-=======
 Attention: the token, email and password must be kept secret, do not share or display it to anyone.
 The token is reset every 24 hours. Then you will need to obtain another token again after 24 hours.
 Microsoft does not allow to generate multiple tokens. Just generate 1 token and use it for 24 hours.
@@ -60,19 +57,14 @@ this done, if there is no error, you can now manipulate data.
 
 
 <h1 align="center">Manipulating data</h1>
->>>>>>> main
 <h2 align="center"> Request </h2>
 
 ### Make a custom request
 ```javascript
 const opts = {
   url: "<request url>",
-<<<<<<< HEAD
   method: "<method>",
   ...
-=======
-  method: "<method>"
->>>>>>> main
 }
 xl.request(opts).then(data =>{
   console.log(data);
