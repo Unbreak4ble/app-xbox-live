@@ -11,10 +11,8 @@ npm i app-xbox-live
 ```
 
 ## Getting started
-<<<<<<< HEAD
 - getting account token:
 First, have your account token, if you don't have a token, try it to get your token:
->>>>>>> main
 ```javascript
 const axl = require("app-xbox-live");
 
