@@ -24,4 +24,4 @@ jobs:
     - name: "install dependencies"
       run: npm install
     - name: "general test"
-      run: node tests/general.js ${{ secrets.AUTH_MAIL }} ${{ secrets.AUTH_PASS}}
+      run: node tests/general.js ${{ secrets.AUTH_EMAIL }} ${{ secrets.AUTH_PASSWORD }}
