@@ -265,7 +265,7 @@ class Account {
 					if(!validate_values(xuid, amount))
 						reject(EMPTY_VALUE);
 
-					const url = mount_url.PEOPLE_SCRENSHOT_GET(xuid, amount);
+					const url = mount_url.PEOPLE_SCREENSHOT_GET(xuid, amount);
 					const opts = mount_options(url, "GET", 2, this.#_token);
 					handle_request(resolve, reject, opts);
 				});
